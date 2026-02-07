@@ -54,8 +54,8 @@ const NotificationBell = () => {
       {open && (
         <div
           ref={dropdownRef}
-          className="absolute right-0 z-50 mt-2 w-80 overflow-hidden
-                     rounded-xl border bg-white shadow-xl"
+          className="absolute right-0 z-50 mt-2 w-[calc(100vw-2rem)] max-w-sm overflow-hidden
+                     rounded-xl border bg-white shadow-xl sm:w-80"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -80,7 +80,7 @@ const NotificationBell = () => {
               No notifications yet
             </p>
           ) : (
-            <div className="max-h-80 overflow-y-auto divide-y">
+            <div className="max-h-[70vh] overflow-y-auto divide-y sm:max-h-80">
               {notifications.map((n, index) => (
                 <div
                   key={n._id || index}

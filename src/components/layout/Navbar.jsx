@@ -19,37 +19,31 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="flex h-16 items-center justify-between gap-4">
+        <div className="flex flex-col gap-3 py-3 md:flex-row md:h-16 md:items-center md:justify-between md:gap-4 md:py-0">
           
-          {/* -------- Left: Brand -------- */}
+          {/* -------- Row 1: Brand (order-1) -------- */}
           <Link
             to="/feed"
-            className="text-2xl font-semibold tracking-tight text-[#564172] italic"
+            className="order-1 text-2xl font-semibold tracking-tight text-[#564172] italic"
             style={{ fontFamily: 'cursive, "Brush Script MT", "Lucida Handwriting", "Comic Sans MS", serif' }}
           >
             Vibely
           </Link>
 
-          {/* -------- Center: Search (hide on small screens) -------- */}
-          <div className="hidden md:block flex-1 max-w-md">
+          {/* -------- Search: full width on mobile (order-3), center on desktop (order-2) -------- */}
+          <div className="order-3 w-full min-w-0 flex-1 md:order-2 md:max-w-md">
             <UserSearch />
           </div>
 
-          {/* -------- Right: Actions -------- */}
-          <div className="flex items-center gap-3">
-            
-            {/* 🔔 Notifications */}
+          {/* -------- Right: Actions (order-2 on mobile, order-3 on desktop) -------- */}
+          <div className="order-2 flex items-center gap-3 md:order-3">
             <NotificationBell />
-
-            {/* 👤 Avatar (safe access) */}
             <Link to={`/profile/${user._id}`}>
               <Avatar
                 name={user.username}
                 src={user.profilePic}
               />
             </Link>
-
-            {/* 🚪 Logout */}
             <Button
               variant="ghost"
               size="sm"
