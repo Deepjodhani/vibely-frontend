@@ -45,14 +45,14 @@ const UserSearch = () => {
   };
 
   return (
-    <div ref={wrapperRef} className="relative w-full max-w-sm">
+    <div ref={wrapperRef} className="relative w-full min-w-0 max-w-full md:max-w-sm">
       <input
         type="text"
         placeholder="Search users"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => results.length > 0 && setOpen(true)}
-        className="w-full rounded-xl border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#564172]"
+        className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#564172] focus:border-transparent"
       />
 
       {open && results.length > 0 && (
